@@ -1,0 +1,57 @@
+description = "Create a new global command for all projects with interactive setup and full project integration"
+prompt = """
+You are tasked with creating a new global command for all projects and fully integrating it into the qwen-tools ecosystem.
+
+**UNDERSTANDING PHASE:**
+- Clarify what specific functionality the user wants in their global command
+- Understand how this command will be used across different projects
+- Determine if this is a variation of existing commands or entirely new functionality
+
+**INTERACTIVE SETUP:**
+Ask these questions in sequence:
+
+1. What should be the name of your new global command? (lowercase, hyphens allowed, avoid conflicts with existing commands)
+2. What is the description for your command? (20-60 characters for /help display)
+3. What is the prompt template for your command? (multi-line, can include {{args}} for arguments)
+4. Does your command need to use arguments? If so, how should {{args}} be used in the prompt?
+5. Does your command need to execute shell commands (e.g., `!{command}`) or access files (e.g., `@{filepath}`)?
+6. Are there any project-specific considerations or limitations to be aware of?
+
+**COMMAND CREATION:**
+Create a properly formatted command template with:
+
+```
+description = "[user's description]"
+prompt = \"\"\"
+[user's prompt with {{args}} and other elements as specified]
+\"\"\"
+```
+
+**FULL INTEGRATION:**
+After creating the command template, integrate it into the entire project:
+
+1. **Save the template:** Store in ~/qwen-tools/templates/[command-name].template
+2. **Update setup script:** Add installation and uninstallation support in setup.sh
+3. **Update documentation:** Add to README.md in appropriate section
+4. **Verify consistency:** Ensure naming conventions match throughout
+
+**SPECIAL HANDLING:**
+- For global commands, consider the broader impact across projects
+- Warn about security implications for commands with system access
+- Suggest best practices for cross-project compatibility
+- Explain potential conflicts with other global commands
+
+**VERIFICATION:**
+Confirm that your implementation follows all project conventions:
+- Consistent naming patterns
+- Proper TOML formatting
+- Correct integration with setup.sh functions
+- Appropriate documentation in README.md
+
+**FINAL OUTPUT:**
+Explain what was created and how to use it, including:
+- Command name that will be available
+- How to invoke the command creation process
+- Any special considerations for global command usage
+- How the command integrates with the project management system
+"""

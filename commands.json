@@ -1,0 +1,44 @@
+{
+  "commands": [
+    {
+      "name": "add",
+      "template": "management/add-command.template",
+      "description": "Add new functionality to the qwen-tools project with full integration and management"
+    },
+    {
+      "name": "main-management",
+      "template": "management/main-management.template",
+      "description": "Comprehensive management command for the qwen-tools project - add templates, update docs, modify setup, maintain project"
+    },
+    {
+      "name": "add-template",
+      "template": "utility/add-template.template",
+      "description": "Add a new template to the qwen-tools project with full integration"
+    },
+    {
+      "name": "update-readme",
+      "template": "utility/update-readme.template",
+      "description": "Update the README documentation with new features or changes, maintaining consistency across the project"
+    },
+    {
+      "name": "update-setup",
+      "template": "utility/update-setup.template",
+      "description": "Update the setup script with new functionality, ensuring complete integration and consistency"
+    },
+    {
+      "name": "manage-project",
+      "template": "utility/manage-project.template",
+      "description": "Comprehensive project management for qwen-tools with full integration and consistency checking"
+    },
+    {
+      "name": "create-command-local",
+      "template": "creation/create-command-local.template",
+      "description": "Create a new local command for the current project with interactive setup and full project integration"
+    },
+    {
+      "name": "create-command-global",
+      "template": "creation/create-command-global.template",
+      "description": "Create a new global command for all projects with interactive setup and full project integration"
+    }
+  ]
+}
