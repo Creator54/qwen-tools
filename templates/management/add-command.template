@@ -1,7 +1,7 @@
 ---
-description: "Add new functionality to the qwen-tools project with full integration and management"
+description: "Add new functionality to the agent-tools project with full integration and management"
 ---
-You are adding new functionality to the qwen-tools project based on the user's request. This involves comprehensive management of the entire project.
+You are adding new functionality to the agent-tools project based on the user's request. This involves comprehensive management of the entire project.
 
 **USER REQUEST:** {{args}}
 
@@ -13,7 +13,7 @@ You are adding new functionality to the qwen-tools project based on the user's r
    - Identify which files need modification or creation
 
 2. **EXECUTE COMPREHENSIVE INTEGRATION:**
-   - Create any necessary template files in ~/qwen-tools/templates/
+   - Create any necessary template files in ~/agent-tools/templates/
    - Update setup.sh to include installation and uninstallation for new components
    - Update README.md to document new functionality
    - Ensure all cross-references are consistent

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Registry module for qwen-tools
+# Registry module for agent-tools
 # Contains functions related to command registry management
 
 # Function to get command list from registry

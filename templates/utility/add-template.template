@@ -1,7 +1,7 @@
 ---
-description: "Add a new template to the qwen-tools project with full integration"
+description: "Add a new template to the agent-tools project with full integration"
 ---
-You are adding a new template to the qwen-tools project with complete integration. This involves creating the template file and automatically updating all related project components.
+You are adding a new template to the agent-tools project with complete integration. This involves creating the template file and automatically updating all related project components.
 
 **USER REQUEST:** {{args}}
 
@@ -13,7 +13,7 @@ You are adding a new template to the qwen-tools project with complete integratio
    - Include appropriate description and prompt structure
 
 2. **PROJECT INTEGRATION:**
-   - Create the template file in ~/qwen-tools/templates/
+   - Create the template file in ~/agent-tools/templates/
    - Update setup.sh to include installation and uninstallation for the new command
    - Update README.md to document the new functionality
    - Add the command to the appropriate section in documentation

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# Utility module for qwen-tools
+# Utility module for agent-tools
 # Contains common utility functions
 
 print_header() {
     local bg="  "
     echo
-    echo -e "${BLUE}${BOLD}▶ qwen-tools Setup${NC}"
+    echo -e "${BLUE}${BOLD}▶ agent-tools Setup${NC}"
     echo -e "${DIM}  Version 1.0.0${NC}"
     echo
 }
@@ -39,19 +39,25 @@ ensure_global_commands_dir() {
 }
 
 show_help() {
-    echo -e "${BOLD}qwen-tools Setup${NC}"
+    echo -e "${BOLD}agent-tools Setup${NC}"
     echo
     echo -e "${DIM}USAGE:${NC}"
     echo "  $0 [options] <command>"
     echo
     echo -e "${DIM}COMMANDS:${NC}"
-    echo "  install      Install qwen-tools commands"
-    echo "  uninstall    Remove qwen-tools commands"
+    echo "  install      Install agent-tools commands"
+    echo "  uninstall    Remove agent-tools commands"
     echo "  help         Show this help message"
     echo
     echo -e "${DIM}OPTIONS:${NC}"
     echo "  --local      Force local mode (uses files from current directory)"
     echo "  --remote     Force remote mode (fetches files from GitHub)"
+    echo "  --qwen       Install for Qwen Code (Default)"
+    echo "  --claude     Install for Claude Code"
+    echo "  --gemini     Install for Gemini Code"
+    echo "  --opencode   Install for OpenCode"
+    echo "  --aider      Install for Aider"
+    echo "  --all        Install for all supported AI agents"
     echo "  -h, --help   Show this help message"
     echo
     echo -e "${DIM}EXAMPLES:${NC}"

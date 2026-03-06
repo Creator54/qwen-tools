@@ -1,20 +1,33 @@
-# qwen-tools
+# agent-tools
 
-A collection of self-managing utilities and templates to enhance the functionality of Qwen Code CLI and other LLM interfaces.
+A collection of self-managing utilities and templates to enhance the functionality of Agent CLIs and other LLM interfaces.
 
 ## Usage
 
 **Quick Setup (Remote):**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Creator54/qwen-tools/main/setup.sh | bash -s -- install
+curl -fsSL https://raw.githubusercontent.com/Creator54/agent-tools/main/setup.sh | bash -s -- --all install
 ```
 
 **Local Repository:**
 ```bash
-# If you cloned qwen-tools locally
-bash setup.sh install
-bash setup.sh uninstall
+# If you cloned agent-tools locally
+bash setup.sh install                   # Installs for Qwen (default)
+bash setup.sh --claude install          # Installs for Claude Code
+bash setup.sh --all install             # Installs for all supported tools
+bash setup.sh uninstall                 # Uninstalls from Qwen
 ```
+
+**Supported AI Agents:**
+
+| Flag | Agent | Config Path |
+|------|-------|-------------|
+| `--qwen` (default) | Qwen Code | `~/.qwen/commands` |
+| `--claude` | Claude Code | `~/.claude/commands` |
+| `--gemini` | Gemini Code | `~/.gemini/commands` |
+| `--opencode` | OpenCode | `~/.config/opencode/commands` |
+| `--aider` | Aider | `~/.aider/commands` |
+| `--all` | All above | — |
 
 ## Available Commands
 
@@ -22,7 +35,7 @@ Once installed, the following commands become available globally across your AI 
 
 | Command | Description |
 |---|---|
-| `/add` | **(Primary)** Add new functionality or commands to the `qwen-tools` project. |
+| `/add` | **(Primary)** Add new functionality or commands to the `agent-tools` project. |
 | `/main-management` | Comprehensive management (add templates, update docs, modify setup). |
 | `/add-template` | Barebones command to add a new template with automatic integration. |
 | `/update-readme` | Update this documentation with new features or changes. |
@@ -33,7 +46,7 @@ Once installed, the following commands become available globally across your AI 
 
 ## Creating Custom Commands
 
-`qwen-tools` custom commands are written in Markdown and stored in the `templates/` directory.
+`agent-tools` custom commands are written in Markdown and stored in the `templates/` directory.
 
 ### Basic Structure
 

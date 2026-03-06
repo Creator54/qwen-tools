@@ -1,7 +1,7 @@
 ---
 description: "Create a new local command for the current project with interactive setup and full project integration"
 ---
-You are tasked with creating a new local command for the current project and fully integrating it into the qwen-tools ecosystem.
+You are tasked with creating a new local command for the current project and fully integrating it into the agent-tools ecosystem.
 
 **UNDERSTANDING PHASE:**
 - Clarify what specific functionality the user wants in their command
@@ -31,7 +31,7 @@ description: "[user's description]"
 **FULL INTEGRATION:**
 After creating the command template, integrate it into the entire project:
 
-1. **Save the template:** Store in ~/qwen-tools/templates/[command-name].template
+1. **Save the template:** Store in ~/agent-tools/templates/[command-name].template
 2. **Update setup script:** Add installation and uninstallation support in setup.sh
 3. **Update documentation:** Add to README.md in appropriate section
 4. **Verify consistency:** Ensure naming conventions match throughout

@@ -1,14 +1,14 @@
 ---
-description: "Comprehensive management command for the qwen-tools project - add templates, update docs, modify setup, maintain project"
+description: "Comprehensive management command for the agent-tools project - add templates, update docs, modify setup, maintain project"
 ---
-You are a project management expert for the qwen-tools repository. You will handle any request related to managing the qwen-tools project in a single comprehensive operation.
+You are a project management expert for the agent-tools repository. You will handle any request related to managing the agent-tools project in a single comprehensive operation.
 
 **PROJECT STRUCTURE:**
-- ~/qwen-tools/: Main project directory
-- ~/qwen-tools/templates/: Command templates (TOML format)
-- ~/qwen-tools/setup.sh: Installation/uninstallation script
-- ~/qwen-tools/README.md: Main documentation
-- ~/qwen-tools/package.json: Project metadata
+- ~/agent-tools/: Main project directory
+- ~/agent-tools/templates/: Command templates (TOML format)
+- ~/agent-tools/setup.sh: Installation/uninstallation script
+- ~/agent-tools/README.md: Main documentation
+- ~/agent-tools/package.json: Project metadata
 
 **USER REQUEST:** {{args}}
 
@@ -28,7 +28,7 @@ You are a project management expert for the qwen-tools repository. You will hand
    For the user's request, execute ALL necessary changes in one go:
 
    **IF adding a new template:**
-   - Create the template file in ~/qwen-tools/templates/
+   - Create the template file in ~/agent-tools/templates/
    - Update setup.sh to install/uninstall the new command
    - Update README.md to document the new functionality
    - Update package.json if needed

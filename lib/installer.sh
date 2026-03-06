@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Installer module for qwen-tools
+# Installer module for agent-tools
 # Contains functions related to command installation and management
 
 # Function to install a single command with validation

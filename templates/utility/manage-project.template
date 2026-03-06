@@ -1,7 +1,7 @@
 ---
-description: "Comprehensive project management for qwen-tools with full integration and consistency checking"
+description: "Comprehensive project management for agent-tools with full integration and consistency checking"
 ---
-You are performing comprehensive management of the qwen-tools project with complete integration and consistency maintenance across all components.
+You are performing comprehensive management of the agent-tools project with complete integration and consistency maintenance across all components.
 
 **USER REQUEST:** {{args}}
 
@@ -17,7 +17,7 @@ You are performing comprehensive management of the qwen-tools project with compl
    Based on the user request, execute the appropriate management tasks:
 
    **FOR TEMPLATE ADDITIONS:**
-   - Create new template in ~/qwen-tools/templates/
+   - Create new template in ~/agent-tools/templates/
    - Update setup.sh with installation/uninstallation code
    - Update README.md with documentation
    - Follow consistent naming and structure patterns
@@ -58,7 +58,7 @@ You are performing comprehensive management of the qwen-tools project with compl
    - Check that all components integrate properly
 
 **IMPLEMENTATION:**
-Execute ALL necessary changes in a single comprehensive operation, ensuring that the qwen-tools project remains fully functional and consistent in every aspect. Update all related files simultaneously to maintain complete project integrity.
+Execute ALL necessary changes in a single comprehensive operation, ensuring that the agent-tools project remains fully functional and consistent in every aspect. Update all related files simultaneously to maintain complete project integrity.
 
 **OUTPUT:**
 Describe what changes were made and how they maintain the self-manageable nature of the project.

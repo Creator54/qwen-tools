@@ -2,8 +2,9 @@
 
 set -e
 
-REPO_BASE="${QWEN_TOOLS_REPO:-https://raw.githubusercontent.com/Creator54/qwen-tools/main}"
+REPO_BASE="${AGENT_TOOLS_REPO:-https://raw.githubusercontent.com/Creator54/agent-tools/main}"
 MODE="auto"
+TARGETS=()
 CMD_ARGS=""
 
 # Functions print_status and print_error are provided by lib/utils.sh.
@@ -15,11 +16,22 @@ parse_args() {
     case "${1:-}" in
       --local) MODE="local" ;;
       --remote) MODE="remote" ;;
+      --qwen|--claude|--gemini|--opencode|--aider)
+        TARGETS+=("${1#--}")
+        ;;
+      --all)
+        TARGETS+=("qwen" "claude" "gemini" "opencode" "aider")
+        ;;
       -h|--help) CMD_ARGS="$1"; shift; break ;;
       *) break ;;
     esac
     shift
   done
+
+  if [[ ${#TARGETS[@]} -eq 0 ]]; then
+    TARGETS=("qwen")
+  fi
+  export TARGETS
   # if not explicitly set to help, capture the rest
   if [[ "$CMD_ARGS" != "-h" && "$CMD_ARGS" != "--help" ]]; then
       CMD_ARGS="$@"
@@ -49,7 +61,7 @@ fetch_remote_files() {
   trap "rm -rf $TEMP_DIR" EXIT
 
   # Hardcoded echoes since utils are not fetched yet
-  echo "▶ Fetching qwen-tools from $REPO_BASE..."
+  echo "▶ Fetching agent-tools from $REPO_BASE..."
 
   local FILES=(
     "lib/config.sh"
@@ -99,16 +111,20 @@ source_libs() {
 
 install_commands() {
   print_header
-  print_status "Installing qwen-tools commands... ${DIM}($MODE mode)${NC}"
+  print_status "Installing agent-tools commands... ${DIM}($MODE mode)${NC}"
   echo
 
-  ensure_global_commands_dir
+  for target in "${TARGETS[@]}"; do
+    set_target_paths "$target"
+    ensure_global_commands_dir
+    print_status "Target: $target (${GLOBAL_COMMANDS_DIR})"
 
-  while IFS='|' read -r command_name template_file; do
-    local template_path
-    template_path=$(get_template_path "$template_file")
-    install_command "$template_path" "$command_name"
-  done < <(get_commands)
+    while IFS='|' read -r command_name template_file; do
+      local template_path
+      template_path=$(get_template_path "$template_file")
+      install_command "$template_path" "$command_name"
+    done < <(get_commands)
+  done
 
   echo
   print_success "Command installation complete!"
@@ -123,22 +139,27 @@ install_commands() {
     fi
   done < <(get_commands)
   echo
-  print_status "The primary command for managing the qwen-tools project is ${BOLD}/add${NC}"
+  print_status "The primary command for managing the agent-tools project is ${BOLD}/add${NC}"
 }
 
 uninstall_commands() {
   print_header
-  print_status "Uninstalling qwen-tools commands... ${DIM}($MODE mode)${NC}"
+  print_status "Uninstalling agent-tools commands... ${DIM}($MODE mode)${NC}"
   echo
 
-  while IFS='|' read -r command_name _; do
-    uninstall_command "$command_name"
-  done < <(get_commands)
+  for target in "${TARGETS[@]}"; do
+    set_target_paths "$target"
+    print_status "Uninstalling target: $target (${GLOBAL_COMMANDS_DIR})"
 
-  if [[ -d "$GLOBAL_COMMANDS_DIR" ]] && [[ -z "$(ls -A "$GLOBAL_COMMANDS_DIR")" ]]; then
-    rmdir "$GLOBAL_COMMANDS_DIR"
-    print_info "Removed empty global commands directory"
-  fi
+    while IFS='|' read -r command_name _; do
+      uninstall_command "$command_name"
+    done < <(get_commands)
+
+    if [[ -d "$GLOBAL_COMMANDS_DIR" ]] && [[ -z "$(ls -A "$GLOBAL_COMMANDS_DIR")" ]]; then
+      rmdir "$GLOBAL_COMMANDS_DIR" 2>/dev/null || true
+      print_info "Removed empty global commands directory for $target"
+    fi
+  done
 
   echo
   print_success "Command removal complete!"
